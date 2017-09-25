@@ -34,17 +34,8 @@ For example, a hook named my_xyz_orch_hook_during_provisioning will run in paral
 
 
 You can have multiple hooks in different phases, hooks on any number of resources and services, 
-or even multiple hooks in the same phase even for the same resource or service.
+or even multiple hooks in the same phase for the same resource or service, with distinct function names that all contain the same "orch_hook_..." keyword.
 
-
-To add multiple hooks in the same phase, just give them distinct names that all contain the hook keyword:
-
-    def my_orch_hook_pre_setup_stuff(self, context):
-        # ...
-        
-    def my_orch_hook_pre_setup_other_stuff(self, context):
-        # ...
-        
         
 All hooks within a phase are executed in parallel threads with ExecuteCommand.
 
