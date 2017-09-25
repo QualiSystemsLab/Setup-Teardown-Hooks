@@ -75,9 +75,7 @@ during teardown to detect failed resources
 
 
 There is no way to control the order of hooks within the same phase. They will be run simultaneously in parallel.
-Hooks should be designed with the expectation that their order within the phase is unpredictable. A trick to
-get around this mechanism is to write one service hook that adds another service with another hook in the same phase. 
- 
+Hooks should be designed with the expectation that their order within the phase is unpredictable.
 
 
 The implementation is in the form:
