@@ -71,14 +71,14 @@ Hooks should be designed with the expectation that their order within the phase 
 
 The implementation is in the form:
 
-    One function 'f' that calls all hooks in a particular phase
+    One function 'f' that calls all hooks in the reservation matching a particular pattern
         do
             scan the reservation for all hook functions that exist
             run all uncalled hooks in parallel threads with ExecuteCommand
             join all threads
             # some hooks may have added items to the reservation that have more hooks
         until no uncalled hooks were found
-    Multiple registrations of 'f' with different hook names
+    Multiple registrations of 'f' with different hook name patterns, e.g. 'orch_hook_pre_setup'
 
 Note that in the orchestration script documentation, the second argument of a registered handler function is
 usually a list of components. It is actually treated by the system as an arbitrary opaque object. 
